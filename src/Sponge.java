@@ -33,9 +33,32 @@ public class Sponge {
 
   // Implement your solution here!
   public static String spongeCase(String sentence) {
-    return null;
-  }
 
+    char[] letters = sentence.toCharArray();
+    String newSentence = "";
+    boolean lower = true;
+
+    for (int i = 0; i < letters.length; i++) {
+      char original = letters[i];
+      char upper = Character.toUpperCase(original);
+      char lowerCharacter = Character.toLowerCase(original);
+
+      if(original == ' '){
+        newSentence += original;
+        lower = true;
+      } else {
+        if (lower) {
+          original = lowerCharacter;
+          newSentence += original;
+        } else {
+          original = upper;
+          newSentence += original;
+        }
+        lower = !lower;
+      }
+    }
+    return newSentence;
+  }
 
   // Method to help with testing, you do not need to read this.
   public static void assertEqual(int testNumber, String actual, String expected) {
