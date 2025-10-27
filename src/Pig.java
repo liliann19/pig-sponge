@@ -26,16 +26,36 @@ public class Pig {
 
     // Implement your solution here!
     public static String pigLatin(String sentence) {
-        return null;
+
+    // takes in a string, ex something => omethingsay 
+    // look at the begining of the sentence 
+    // if the beginning of the sentence is a vowel, leave as is then move forward
+    // not a vowel, move that value/letter to the end of the string 
+    // also add ay to the end of that string 
+    // return the string 
+
+
+        String[] words = sentence.split(" ");
+        String result = "";
+
+        for (int i = 0; i < words.length; i++) {
+            String word = words[i];
+
+            if (word.charAt(0) == 'a' || word.charAt(0) == 'e' || 
+            word.charAt(0) == 'i' || word.charAt(0) == 'o' || word.charAt(0) == 'u') {
+
+                result = result + word + " "; 
+
+            } else {
+                char firstLetter = word.charAt(0);
+                word = word.substring(1);
+                result = result + word + firstLetter + "ay" + " ";
+            }
+
+        }
+
+        return result.trim();
     }
-
-
-
-
-
-
-
-
 
     // Method to help with testing, you do not need to read this.
     public static void assertEqual(int testNumber, String actual, String expected) {
@@ -46,5 +66,3 @@ public class Pig {
         }
     }
     }
-  
-  
